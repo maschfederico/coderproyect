@@ -1,28 +1,16 @@
-import './Nav.css';
-import logo from './logo.svg'
-function Nav() {
-   
-    return (
-        <header>
-            <div className="container">
-            <img src={logo} className="Nav-logo" alt="logo" />
-                <h1>Fibbo</h1>
-                <nav>
-                    <ul>
-                        <li>
-                        <a href="#top">Vegetales</a>
-                        </li>
-                        <li>
-                        <a href="#top">Lacteos</a>
-                        </li>
-                        <li>
-                        <a href="#top">Bebidas</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
-    )
+import { MdDonutLarge} from "react-icons/md";
+import CartWidget from '../Cart/CartWidget'
+const Nav = () => {
+    return ( 
+        <nav className="lime accent-2 ">
+            <a href="#!" className="brand-logo black-text"><i class="material-icons left"><MdDonutLarge/></i>Fibbo</a>
+            <ul className="right hide-on-med-and-down ">
+                <li><a href="#top" className="black-text">Verduras</a></li>
+                <li><a href="#top" className="black-text">Lácteos</a></li>
+                <li><a href="#top" className="black-text">Bedidas</a></li>
+                <li><a href="#top" className="black-text"><CartWidget/></a></li>
+         </ul>
+        </nav>
+        );
 }
-
 export default Nav;
