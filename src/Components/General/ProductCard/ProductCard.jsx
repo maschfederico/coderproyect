@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import ItemCount from "./ItemCount";
-const ProductCard = ({titulo,precio,descripcion,imagen,stock, inicial =1 }) => {
+import {Link} from 'react-router-dom';
+const ProductCard = ({titulo,precio,descripcion,imagen,stock, inicial =1,id }) => {
     const [cantidad, setCantidad] = useState(inicial);
 
     const handleClickResta = () => {
@@ -29,7 +30,8 @@ const ProductCard = ({titulo,precio,descripcion,imagen,stock, inicial =1 }) => {
                     <p>{descripcion}</p>
                 </div>
                 <div className="card-content">
-                    <ItemCount cantidad = {cantidad} stock={stock} resta={handleClickResta}  suma={handleClickSuma} eventAddCarrito={onAdd}/>           
+                    <ItemCount cantidad = {cantidad} stock={stock} resta={handleClickResta}  suma={handleClickSuma} eventAddCarrito={onAdd}/>   
+                    <Link to={`/detalle/${id}`}>Ver más</Link>        
                 </div>
             </div>
     );
