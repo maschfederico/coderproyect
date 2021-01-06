@@ -4,6 +4,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import CartWidget from './components/general/Cart/CartWidget';
 import Productos from './components/productos/Productos'
 import DetalleProducto from './components/productos/DetalleProducto'
+import Cart from './components/general/Cart/Cart'
 function App() {
   return (
     <>
@@ -18,10 +19,10 @@ function App() {
         <Route path="/detalle/:productoid">
           <DetalleProducto />
         </Route>
-        
-        <Route path="*">
-
+        <Route path="/cart">
+          <Cart />
         </Route>
+        <Route path="*"> </Route>
       </Switch>
   </BrowserRouter>
   </>

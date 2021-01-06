@@ -1,7 +1,7 @@
 const productos = [
     {
         id: '1',
-        imagen: 'lechugas.jpg',
+        imagen: '/static/imagenes/lechugas.jpg',
         nombre: 'Lechuga Francesa',
         precio: 50.23,
         descripcion: "Lechuga francesa hidropónica" ,
@@ -11,7 +11,7 @@ const productos = [
     },
     {
         id: '2',
-        imagen: 'tomates.jpg',
+        imagen: '/static/imagenes/tomates.jpg',
         titulo: 'Tomate Redondo',
         precio: 50,
         descripcion: "Tomate redondo cultivado y cosechado de  forma orgánica.",
@@ -21,7 +21,7 @@ const productos = [
     },
     {
         id: '3',
-        imagen: 'zanahorias.jpg',
+        imagen: '/static/imagenes/zanahorias.jpg',
         titulo: 'Zanahorias',
         precio: 50,
         descripcion: "Zanahorias envasadas en origen. Bolsa de 1 Kg.",
@@ -31,7 +31,7 @@ const productos = [
     },
     {
         id: '4',
-        imagen: 'manzanas.jpg',
+        imagen: '/static/imagenes/manzanas.jpg',
         titulo: 'Manzanas',
         precio: 50,
         descripcion: "Manzanas rojas de origen orgánico",
@@ -41,7 +41,7 @@ const productos = [
     },
     {
         id: '5',
-        imagen: 'duraznos.jpg',
+        imagen: '/static/imagenes/duraznos.jpg',
         titulo: 'Duranzos',
         precio: 50,
         descripcion: "Duraznos de origen orgánico",
@@ -51,7 +51,7 @@ const productos = [
     },
     {
         id: '6',
-        imagen: 'ciruelas.jpg',
+        imagen: '/static/imagenes/ciruelas.jpg',
         titulo: 'Ciruelas',
         precio: 50,
         descripcion: "Ciruela morada de origen orgánico",

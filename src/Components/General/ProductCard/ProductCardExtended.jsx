@@ -1,30 +1,23 @@
 import {useState} from 'react';
+import {useHistory} from 'react-router-dom';
 import ItemCount from "./ItemCount";
 
 const ProductCardExtended = ({data}) => {
    
-    const [cantidad, setCantidad] = useState(1);
-   
+    const [cantidad, setCantidad] = useState(0);
+    const history = useHistory();
 
-    const handleClickResta = () => {
-        if(cantidad> 1) {
-            setCantidad(cantidad - 1);
-        }
-    }
+    const onAdd = (value) => {
+        setCantidad(value)
+    };
 
-    const handleClickSuma = () => {
-        if(cantidad < data.stock) {
-            setCantidad(cantidad + 1);
-        }
-    }
-
-    const onAdd = () => {
-        alert(`Agregaste ${cantidad} productos al carrito`);
-    }
+    const redireccionar = ()=>{
+        history.push("/cart")
+    };
     return (  
             <div className="card">
                 <div className="card-image">
-                    <img src="" alt="Source Imagen Fail"/>
+                    <img src={data.imagen} alt="Source Imagen Fail"/>
                     <span className="card-title black-text">{data.titulo}</span>
                 </div>
                 <div className="card-content">
@@ -32,7 +25,8 @@ const ProductCardExtended = ({data}) => {
                     <p>{data.descripcion_extendida}</p>
                 </div>
                 <div className="card-content">
-                    <ItemCount cantidad = {cantidad} stock={data.stock} resta={handleClickResta}  suma={handleClickSuma} eventAddCarrito={onAdd}/>   
+                    <ItemCount cantidad_inicial = {1} stock={data.stock} eventAddCarrito={onAdd}/>   
+                    <button disabled = {cantidad === 0 ? true : false} onClick={redireccionar}>Terminar mi compra</button> 
                 </div>
                 
             </div>

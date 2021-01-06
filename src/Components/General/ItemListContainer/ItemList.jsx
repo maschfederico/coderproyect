@@ -24,11 +24,11 @@ const ItemList = () => {
             </div>
             {items.length ? 
             items.map((item)=>{
-                const rutaImagen = require (`./imagenes/${item.imagen}`);
+               
                     return(
                     <div className="col s12 m6 l4">
                         < ProductCard key={item.id} 
-                        imagen={rutaImagen.default}
+                        imagen={item.imagen}
                         titulo={item.nombre}
                         descripcion={item.descripcion}
                         precio={item.precio}

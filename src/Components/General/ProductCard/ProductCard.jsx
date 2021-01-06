@@ -1,24 +1,18 @@
 import {useState} from 'react';
 import ItemCount from "./ItemCount";
-import {Link} from 'react-router-dom';
-const ProductCard = ({titulo,precio,descripcion,imagen,stock, inicial =1,id }) => {
+import {Link,useHistory} from 'react-router-dom';
+const ProductCard = ({titulo,precio,descripcion,imagen,stock, inicial =0,id }) => {
     const [cantidad, setCantidad] = useState(inicial);
+    const history = useHistory();
 
-    const handleClickResta = () => {
-        if(cantidad> 1) {
-            setCantidad(cantidad - 1);
-        }
-    }
+    const onAdd = (value) => {
+        setCantidad(value)
+    };
 
-    const handleClickSuma = () => {
-        if(cantidad < stock) {
-            setCantidad(cantidad + 1);
-        }
-    }
+    const redireccionar = ()=>{
+        history.push("/cart")
+    };
 
-    const onAdd = () => {
-        alert(`Agregaste ${cantidad} productos al carrito`);
-    }
     return (  
             <div className="card">
                 <div className="card-image">
@@ -30,8 +24,9 @@ const ProductCard = ({titulo,precio,descripcion,imagen,stock, inicial =1,id }) =
                     <p>{descripcion}</p>
                 </div>
                 <div className="card-content">
-                    <ItemCount cantidad = {cantidad} stock={stock} resta={handleClickResta}  suma={handleClickSuma} eventAddCarrito={onAdd}/>   
-                    <Link to={`/detalle/${id}`}>Ver más</Link>        
+                    <ItemCount cantidad_inicial = {1} stock={stock}  eventAddCarrito={onAdd}/>   
+                    <Link to={`/detalle/${id}`}>Ver más</Link> 
+                    <button disabled = {cantidad === 0 ? true:false} onClick={redireccionar}>Terminar mi compra</button>       
                 </div>
             </div>
     );
