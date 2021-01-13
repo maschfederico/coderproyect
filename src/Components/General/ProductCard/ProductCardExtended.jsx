@@ -6,6 +6,7 @@ const ProductCardExtended = ({data}) => {
    
     const [cantidad, setCantidad] = useState(0);
     const history = useHistory();
+ 
 
     const onAdd = (value) => {
         setCantidad(value)
@@ -15,6 +16,7 @@ const ProductCardExtended = ({data}) => {
         history.push("/cart")
     };
     return (  
+            
             <div className="card">
                 <div className="card-image">
                     <img src={data.imagen} alt="Source Imagen Fail"/>
@@ -25,11 +27,12 @@ const ProductCardExtended = ({data}) => {
                     <p>{data.descripcion_extendida}</p>
                 </div>
                 <div className="card-content">
-                    <ItemCount cantidad_inicial = {1} stock={data.stock} eventAddCarrito={onAdd}/>   
+                    <ItemCount cantidad_inicial = {1} stock={data.stock} id ={data.id} eventAddCarrito={onAdd}/>   
                     <button disabled = {cantidad === 0 ? true : false} onClick={redireccionar}>Terminar mi compra</button> 
                 </div>
                 
             </div>
+           
     );
 }
  

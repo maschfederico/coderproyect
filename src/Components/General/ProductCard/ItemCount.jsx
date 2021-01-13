@@ -1,6 +1,10 @@
-import {useEffect, useState} from 'react';
-const Itemcount = ({cantidad_inicial,eventAddCarrito,stock}) => {
+import {useEffect, useState, useContext} from 'react';
+import  {Store} from '../../cartcontext/store';
+
+const Itemcount = ({cantidad_inicial,eventAddCarrito,stock, id}) => {
     const [cantidad, setCantidad] = useState(0);
+
+    const [cart,addItemCart] = useContext(Store);
 
     const handleClickResta = () => {
         if(cantidad> 1) {
@@ -13,6 +17,11 @@ const Itemcount = ({cantidad_inicial,eventAddCarrito,stock}) => {
             setCantidad(cantidad + 1);
         }
     }
+
+    const agregarItemCarrito = ()=>{
+    addItemCart({id: id, cantidad: cantidad});
+    eventAddCarrito(cantidad)
+    };
 
     useEffect(()=>{
         setCantidad(cantidad_inicial)
@@ -39,7 +48,7 @@ const Itemcount = ({cantidad_inicial,eventAddCarrito,stock}) => {
                 </div>
             </div>   
             <div className=" row">  
-                <button disabled = {stock === "0" ? 'disabled': null} onClick={()=>eventAddCarrito(cantidad)}>Agregar al carrito</button>
+                <button disabled = {stock === "0" ? 'disabled': null} onClick={agregarItemCarrito}>Agregar al carrito</button>
             </div>
         </div>
     );
