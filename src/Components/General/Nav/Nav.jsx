@@ -11,9 +11,9 @@ const Nav = ({children}) => {
                         Productos
                     </Link>
                 </li>
-                <li>
-                    {children}
-                </li>
+                
+                {children}
+                
          </ul>
         </nav>
         );

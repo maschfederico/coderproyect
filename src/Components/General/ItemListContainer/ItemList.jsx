@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
-import ProductCard from "../ProductCard/ProductCard";
-import productos from '../../../mockdata/productos';
+import ProductCard from "../../ProductCard/ProductCard";
+import productos from '../../../DataSource/mockdata/productos';
 const ItemList = () => {
     const [items, setItems] = useState([]);
 
@@ -18,22 +18,18 @@ const ItemList = () => {
    
 
     return ( 
-        <div className="row">
+        <div className="row" key={1}>
             <div className=" col s12">
                 <span className="title"> Verduras y Frutas</span>
             </div>
             {items.length ? 
-            items.map((item)=>{
+            items.map((item,i)=>{
                
                     return(
                     <div className="col s12 m6 l4">
-                        < ProductCard key={item.id} 
-                        imagen={item.imagen}
-                        titulo={item.nombre}
-                        descripcion={item.descripcion}
-                        precio={item.precio}
-                        stock={item.stock}
-                        id={item.id}
+                        < ProductCard key={i} 
+                       data ={item}
+                       extended = {false}
                         />
                     </div>
                     )

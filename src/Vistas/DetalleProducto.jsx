@@ -1,7 +1,7 @@
-import ProductCardExtended from '../general/ProductCard/ProductCardExtended'
+import ProductCard from '../Components/ProductCard/ProductCard'
 import {useParams} from 'react-router-dom';
 import {useState, useEffect} from 'react';
-import productos from '../../mockdata/productos';
+import productos from '../DataSource/mockdata/productos';
 
 const DetalleProducto = () => {
     const [item, setItem] = useState([]);
@@ -19,10 +19,10 @@ const DetalleProducto = () => {
    
     useEffect(() => {
         callProducto()
-    }, [productoid])
+    }, [])
 
     return ( 
-       <ProductCardExtended data={item}/>
+       <ProductCard data={item} extended={true} />
      );
 }
  

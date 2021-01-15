@@ -1,6 +1,7 @@
 const productos = [
     {
         id: '1',
+        titulo:'Lechuga Francesa',
         imagen: '/static/imagenes/lechugas.jpg',
         nombre: 'Lechuga Francesa',
         precio: 50.23,

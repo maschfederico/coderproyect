@@ -1,10 +1,12 @@
 import {useEffect, useState, useContext} from 'react';
-import  {Store} from '../../cartcontext/store';
+import  {Store} from '../../DataSource/cartcontext/store';
 
 const Itemcount = ({cantidad_inicial,eventAddCarrito,stock, id}) => {
     const [cantidad, setCantidad] = useState(0);
 
-    const [cart,addItemCart] = useContext(Store);
+    const store = useContext(Store);
+
+    const {addItemCart} = store;
 
     const handleClickResta = () => {
         if(cantidad> 1) {
@@ -19,7 +21,7 @@ const Itemcount = ({cantidad_inicial,eventAddCarrito,stock, id}) => {
     }
 
     const agregarItemCarrito = ()=>{
-    addItemCart({id: id, cantidad: cantidad});
+    addItemCart({productId: id, cantidad: cantidad});
     eventAddCarrito(cantidad)
     };
 
